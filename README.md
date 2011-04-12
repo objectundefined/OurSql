@@ -2,7 +2,7 @@ Introdiuction:
 
 OurSql generates live database objects that respond similarly to the ActiveRecord pattern, however it does not support model creation, table generation, etc.  As a result, OurSql is geared primarily toward those who are working with pre-existing MySql databases, or those who are willing to create tables from scratch.  The only requirement is that every table initialized by OurSql must have an auto-increment, unique field named 'id'.
 
-Usage:
+Model Creation:
 
 OurSql currently requires node-mysql, which must be initialized separately.  For now, this is to allow easy table-relationships between multiple databases.  Each client represents a database, so if you're only using one database, your mysql configuration will look as follows: 
 
@@ -30,7 +30,9 @@ Next, import OurSql and create models.  Models are based upon pre-existing mysql
 	User.addMethod('getLastFiveEntries',function(callback){
 		return Entry.retrieve({where:{userId:this.id},orderBy:'dateline DESC',limit:5},callback);
 	});
-	
+
+Model Usage:
+
 Now, you can use your object models to perform CRUD operations.  You can either pass an object of key-value pairs when you create the instance, or you can create a blank instance and set values thereafter:
 
 	// Create a brand new User
