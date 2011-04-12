@@ -1,3 +1,5 @@
+Introdiuction: OurSql generates live database objects that respond similarly to the ActiveRecord pattern, however it does not support model creation, table generation, etc.  As a result, OurSql is geared primarily toward those who are working with pre-existing MySql databases, or those who are willing to create tables from scratch.  The only requirement is that every table initialized by OurSql must have an auto-increment, unique field named 'id'.
+
 OurSql currently requires node-mysql, which must be initialized separately.  For now, this is to allow easy table-relationships between multiple databases.  Each client represents a database, so if you're only using one database, your mysql configuration will look as follows: 
 
 	Mysqlclient = require("mysql").Client;
@@ -8,9 +10,7 @@ OurSql currently requires node-mysql, which must be initialized separately.  For
 	mysqlclient.database = "db_database";
 	mysqlclient.connect();
 
-Next, import OurSql and create models.  Models are based upon pre-existing mysql tables in the given mysql database client. You don't need to define properties and types for any pre-existing columns in each table, however you can define relationships between tables by adding methods.
-
-Note... Every table used by OurSql must have an auto-increment, unique field named 'id':
+Next, import OurSql and create models.  Models are based upon pre-existing mysql tables in the given mysql database client. You don't need to define properties and types for any pre-existing columns in each table, however you can define relationships between tables by adding methods:
 
 	OurSql = require('./OurSql');
 	
