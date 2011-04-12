@@ -56,6 +56,8 @@ Now, you can use your object models to perform CRUD operations.  You can either 
 			entries[0].title = 'NEW TITLE';
 			entries[0].save();
 			
-		})
+		});
+		
+		jack.delete(); //supports callback to determine success or failure
 		
 	})
