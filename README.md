@@ -8,7 +8,9 @@ OurSql currently requires node-mysql, which must be initialized separately.  For
 	mysqlclient.database = "db_database";
 	mysqlclient.connect();
 
-Next, import OurSql and create models.  Models are based upon pre-existing mysql tables in the given mysql database client. You don't need to define properties and types for any pre-existing columns in each table, however you can define relationships between tables by adding methods:
+Next, import OurSql and create models.  Models are based upon pre-existing mysql tables in the given mysql database client. You don't need to define properties and types for any pre-existing columns in each table, however you can define relationships between tables by adding methods.
+
+Note... Every table used by OurSql must have an auto-increment, unique field named 'id':
 
 	OurSql = require('./OurSql');
 
