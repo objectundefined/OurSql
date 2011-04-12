@@ -106,6 +106,13 @@ exports.Model = function(tableName,mysqlclient){
 				if('id' in this) this.update(callback);
 				else this.create(callback);
 			};
+            mi.Instance.prototype['delete'] = function(callback){
+                if('id' in this)
+                {
+                    var query = 'DELETE FROM '+tableName+' WHERE id = '+instance.id;
+                    mysqlclient.query(query,callback)
+                }
+            }; 
 
 			var vals = userObj || {};
     		init(vals);
