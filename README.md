@@ -13,7 +13,9 @@ Next, import OurSql and create models.  Models are based upon pre-existing mysql
 Note... Every table used by OurSql must have an auto-increment, unique field named 'id':
 
 	OurSql = require('./OurSql');
-
+	
+	// SYNTAX: Object = new OurSql.Model(TableName,mysqlclient)
+	
 	User = new OurSql.Model('Users',mysqlclient);
 	Entry = new OurSql.Model('Entries',mysqlclient);
 	Tag = new OurSql.Model('Tags',mysqlclient);
