@@ -1,4 +1,6 @@
 { "name" : "oursql"
-, "version": "v0.1.1beta"
+, "version": "v0.1.1"
+, "description": "MySql ORM module for Node.JS"
+, "author": "Gabriel Lipson <gabriel@advizo.com>"
 , "main" : "./lib/OurSql"
 }
