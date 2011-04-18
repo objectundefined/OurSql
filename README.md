@@ -20,13 +20,13 @@ OurSql currently requires node-mysql, which must be initialized separately.  For
 
 Next, import OurSql and create models.  Models are based upon pre-existing mysql tables in the given mysql database client. You don't need to define properties and types for any pre-existing columns in each table, however you can define relationships between tables by adding methods:
 
-	ORM = require('oursql');
+	OurSql = require('oursql');
 	
 	// SYNTAX: Object = new OurSql.Model(TableName,mysqlclient)
 	
-	User = new ORM.Model('Users',mysqlclient);
-	Entry = new ORM.Model('Entries',mysqlclient);
-	Tag = new ORM.Model('Tags',mysqlclient);
+	User = new OurSql.Model('Users',mysqlclient);
+	Entry = new OurSql.Model('Entries',mysqlclient);
+	Tag = new OurSql.Model('Tags',mysqlclient);
 	
 	User.addMethod('getEntries',function(callback){
 		return Entry.findWhere({userId:this.id},callback);
