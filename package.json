@@ -1,7 +1,8 @@
 { "name" : "oursql"
-, "version": "v0.1.2"
+, "version": "v0.1.3"
 , "description": "MySql ORM module for Node.JS"
 , "keywords":["orm","mysql","activerecord","database","object","relational","mapper"]
-, "author": "Gabriel Lipson <gabriel@advizo.com>"
+, "repository": "git://github.com/objectundefined/OurSql"
+, "author": "Gabriel Lipson <gabriel@advizo.com> (http://www.github.com/objectundefined/OurSql)"
 , "main" : "./lib/OurSql"
 }
