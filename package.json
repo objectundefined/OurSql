@@ -1,0 +1,4 @@
+{ "name" : "oursql"
+, "version": "0.1"
+, "main" : "./lib/OurSql"
+}
