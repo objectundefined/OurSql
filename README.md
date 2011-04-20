@@ -11,7 +11,7 @@ To install OurSql, it is recommended that you install NPM and run the command:
 Import OurSql, connect to the database, and create models.  Models are based upon pre-existing mysql tables in the given mysql database client. You don't need to define properties and types for any pre-existing columns in each table, however you can define relationships between tables by adding methods:
 
 	var	OurSql = require('oursql'),
-	sqloptions = {user:'dbuser',password:'dbpassword',database:'blog',host:'localhost')
+	sqloptions = {user:'dbuser',password:'dbpassword',database:'blog',host:'localhost'};
 
 	OurSql.connect(sqloptions, function(){
 
