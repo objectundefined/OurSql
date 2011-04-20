@@ -8,32 +8,27 @@ To install OurSql, it is recommended that you install NPM and run the command:
 
 --Model Creation--
 
-OurSql currently requires node-mysql, which must be initialized separately.  For now, this is to allow easy table-relationships between multiple databases.  Each client represents a database, so if you're only using one database, your mysql configuration will look as follows: 
+Import OurSql, connect to the database, and create models.  Models are based upon pre-existing mysql tables in the given mysql database client. You don't need to define properties and types for any pre-existing columns in each table, however you can define relationships between tables by adding methods:
 
-	Mysqlclient = require("mysql").Client;
-	mysqlclient = new Mysqlclient();
-	mysqlclient = new Mysqlclient();
-	mysqlclient.user = 'db_username';
-	mysqlclient.password = 'db_password';
-	mysqlclient.database = "db_database";
-	mysqlclient.connect();
+	var	OurSql = require('oursql'),
+	sqloptions = {user:'dbuser',password:'dbpassword',database:'blog',host:'localhost')
 
-Next, import OurSql and create models.  Models are based upon pre-existing mysql tables in the given mysql database client. You don't need to define properties and types for any pre-existing columns in each table, however you can define relationships between tables by adding methods:
+	OurSql.connect(sqloptions, function(){
 
-	OurSql = require('oursql');
+		// SYNTAX: Object = new OurSql.Model(TableName,mysqlclient)
+		
+		User = new OurSql.Model('Users',mysqlclient);
+		Entry = new OurSql.Model('Entries',mysqlclient);
+		Tag = new OurSql.Model('Tags',mysqlclient);
+		
+		User.addMethod('getEntries',function(callback){
+			return Entry.findWhere({userId:this.id},callback);
+		});
+		User.addMethod('getLastFiveEntries',function(callback){
+			return Entry.retrieve({where:{userId:this.id},orderBy:'dateline DESC',limit:5},callback);
+		});
 	
-	// SYNTAX: Object = new OurSql.Model(TableName,mysqlclient)
-	
-	User = new OurSql.Model('Users',mysqlclient);
-	Entry = new OurSql.Model('Entries',mysqlclient);
-	Tag = new OurSql.Model('Tags',mysqlclient);
-	
-	User.addMethod('getEntries',function(callback){
-		return Entry.findWhere({userId:this.id},callback);
-	});
-	User.addMethod('getLastFiveEntries',function(callback){
-		return Entry.retrieve({where:{userId:this.id},orderBy:'dateline DESC',limit:5},callback);
-	});
+	});	
 
 --Model Usage--
 
