@@ -1,1 +1,1 @@
-module.exports = require('./lib/OurSql.js');
+module.exports = require('./lib/OurSql');
