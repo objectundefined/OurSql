@@ -1,5 +1,5 @@
 { "name" : "oursql"
-, "version": "v0.1.7"
+, "version": "v0.1.8"
 , "description": "MySql ORM module for Node.JS"
 , "keywords":["orm","mysql","activerecord","database","object","relational","mapper"]
 , "dependencies": {"mysql": ">= 0.9.1"}
